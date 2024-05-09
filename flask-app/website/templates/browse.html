@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Browse{% endblock %}
+
+{% block content %}
+
+<h2 class="text-white fw-bold pt-3 pb-3">Popular Movies</h2>
+
+{% for i in range(5) %}
+<div class="row text-white">
+    {% for j in range(4) %}
+    <div class="col-6 col-lg-3 pb-5">
+        <a href="/detail?id={{ data[i*4 + j].get('id') }}" target="_blank">
+            <div class="card text-bg-dark" style="box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);">
+                <img src="{{data[i*4 + j].get('poster_path')}}" class="card-img-top" alt="movie poster">
+                <div class="card-body">
+                    <h4 class="card-title">{{data[i*4 + j].get('title')}}</h4>
+                    <p class="card-text">{{data[i*4 + j].get('year')}}, {{data[i*4 + j].get('language')}}</p>
+                    <p class="card-text text-white-50 fs-6">
+                        {% for i in data[i*4 + j].get('genres') %} {{i}}, {% endfor %}
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endfor %}
+
+{% endblock %}

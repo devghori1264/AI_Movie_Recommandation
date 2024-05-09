@@ -1,0 +1,9 @@
+flask
+python-dotenv
+requests
+pandas
+fastparquet
+gunicorn
+streamlit
+requests
+streamlit_lottie
